@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<% @order.products.each do|product| %>
+  <p>
+    <strong><%= "#{product.quantity}, #{product.name}, #{product.price}" %></strong>
+  </p>
+<% end %>
+<br/>
+
+<p>
+  <strong>Sales tax:</strong>
+  <%= @order.total_sales_tax %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @order.total_price %>
+</p>
+
+<%= link_to 'Back', orders_path %>
