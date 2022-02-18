@@ -16,9 +16,9 @@ An Application to Take list of items in specific format and calculate their sale
 
 * Database Preparation:
 	- To create a fresh db:
-		- rake db:create db:migrate db:seed
+		- rails db:create db:migrate db:seed
 	- To drop existing & create a fresh db:
-		- rake db:drop db:create db:migrate db:seed
+		- rails db:drop db:create db:migrate db:seed
 
 * Application Setup and running:
 	- rails db:create db:migrate db:seed
