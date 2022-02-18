@@ -14,4 +14,5 @@ class Category < ApplicationRecord
 
 	validates :name, presence: true, uniqueness: true
 	validates :tax_percentage, presence: true
+  validates :keywords, presence: true
 end

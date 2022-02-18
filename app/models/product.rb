@@ -21,17 +21,12 @@ class Product < ApplicationRecord
   before_save :set_category_id
 
   def set_category_id
-    categs = Category.pluck(:id, :name)
-    case name.downcase
-    when -> (nam) { %w(pill syrup tablet).any? { |word| nam.include?(word) } }
-      category_id = categs.detect{|cat| cat[1] == 'Medical'}[0]
-    when -> (nam) {  %w(chocolate).any? { |word| nam.include?(word) } }
-      category_id = categs.detect{|cat| cat[1] == 'Food'}[0]
-    when -> (nam) {  %w(book).any? { |word| nam.include?(word) } }
-      category_id = categs.detect{|cat| cat[1] == 'Book'}[0]
-    else
-      category_id = categs.detect{|cat| cat[1] == 'Others'}[0]
+    category_id_keywords = Category.all.inject({}) do |res, categ|
+      res[categ.id] = categ.keywords.split(',').collect(&:strip)
+      res
     end
+    category_id = (category_id_keywords.detect { |id, keywords| keywords.any? { |word| name.downcase.include?(word) } } || [])[0]
+    category_id ||= Category.where(name: 'Others').first.id
     self.category_id = category_id
   end
 

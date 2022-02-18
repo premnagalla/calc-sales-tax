@@ -36,3 +36,10 @@ An Application to Take list of items in specific format and calculate their sale
 			1, music cd, 14.99
 			1, chocolate bar, 0.85
 		```
+* Tax Calulation Rules
+	- books, food, and medical items - 0%
+	- All Other Items - 10%
+	- All Imported items, including books, food, and medical items - 5%
+	- Items Price includes Sales tax
+	- Sales tax is rounded to 0.05
+	- User can choose the words and tax percentage for each category by updating `keywords` & `tax percentage` in `Categories` table.

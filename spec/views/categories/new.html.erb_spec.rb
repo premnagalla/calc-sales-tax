@@ -5,7 +5,8 @@ RSpec.describe "categories/new", type: :view do
     assign(:category, Category.new(
       name: "MyString",
       description: "MyText",
-      tax_percentage: 1.5
+      tax_percentage: 1.5,
+      keywords: "MyKeyword"
     ))
   end
 
@@ -19,6 +20,8 @@ RSpec.describe "categories/new", type: :view do
       assert_select "textarea[name=?]", "category[description]"
 
       assert_select "input[name=?]", "category[tax_percentage]"
+
+      assert_select "textarea[name=?]", "category[keywords]"
     end
   end
 end

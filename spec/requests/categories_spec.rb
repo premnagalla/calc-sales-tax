@@ -18,12 +18,11 @@ RSpec.describe "/categories", type: :request do
   # Category. As you add validations to Category, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    { name: 'Categ1', tax_percentage: 10.0 }
+    { name: 'Categ1', tax_percentage: 10.0, keywords: 'Keyword1' }
   }
 
   let(:invalid_attributes) {
     { name: nil }
-    # { invalid_key: 'incorrect value' }
   }
 
   describe "GET /index" do
@@ -89,7 +88,7 @@ RSpec.describe "/categories", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) {
-        { name: 'Categ1', tax_percentage: 8.0 }
+        { name: 'Categ1', tax_percentage: 8.0, keywords: 'Keyword1, Keyword2' }
       }
 
       it "updates the requested category" do
@@ -97,6 +96,7 @@ RSpec.describe "/categories", type: :request do
         patch category_url(category), params: { category: new_attributes }
         category.reload
         expect(category.tax_percentage).to eq(8.0)
+        expect(category.keywords).to eq('Keyword1, Keyword2')
       end
 
       it "redirects to the category" do

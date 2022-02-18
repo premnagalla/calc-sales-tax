@@ -5,7 +5,8 @@ RSpec.describe "categories/show", type: :view do
     @category = assign(:category, Category.create!(
       name: "Name",
       description: "MyText",
-      tax_percentage: 2.5
+      tax_percentage: 2.5,
+      keywords: "MyKeyword"
     ))
   end
 
@@ -14,5 +15,6 @@ RSpec.describe "categories/show", type: :view do
     expect(rendered).to match(/Name/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/2.5/)
+    expect(rendered).to match(/MyKeyword/)
   end
 end

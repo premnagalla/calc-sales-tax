@@ -28,7 +28,7 @@ class Order < ApplicationRecord
 		end
 
 		# Set rounded calculated values into Order attributes & save
-		self.total_sales_tax = tot_tax
+		self.total_sales_tax = (tot_tax*20).round / 20.0
 		self.total_price = (tot_price*100).round / 100.0
 		self.save
 	end

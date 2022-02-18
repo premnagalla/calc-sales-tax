@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_16_193724) do
+ActiveRecord::Schema.define(version: 2022_02_17_203355) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2022_02_16_193724) do
     t.float "tax_percentage"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "keywords"
   end
 
   create_table "orders", force: :cascade do |t|

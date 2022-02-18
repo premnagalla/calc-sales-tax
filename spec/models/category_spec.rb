@@ -9,7 +9,7 @@ RSpec.describe Category, type: :model do
   end
 
   context "when validating an category" do
-    %w(name tax_percentage).each do |attr|
+    %w(name tax_percentage keywords).each do |attr|
       it "must have an attribute '#{attr}'" do
         u = Fabricate.build(:category)
         u.send("#{attr}=",nil)
