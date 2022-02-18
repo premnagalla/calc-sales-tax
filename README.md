@@ -15,18 +15,18 @@ An Application to Take list of items in specific format and calculate their sale
 * Database: Sqlite
 
 * Database Preparation:
-	- Sqlite3 comes along with development database.
 	- To create a fresh db:
 		- rake db:create db:migrate db:seed
-	- To drop & create a fresh db:
+	- To drop existing & create a fresh db:
 		- rake db:drop db:create db:migrate db:seed
+
+* Application Setup and running:
+	- rails db:create db:migrate db:seed
+	- rails server
 
 * How to run the test suite:
 	- rails db:migrate RAILS_ENV=test
 	- rspec spec/
-
-* How to run Application:
-	- rails server
 
 * Input Format: quantity, name, price.
 	- Sample:
